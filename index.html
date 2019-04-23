@@ -612,7 +612,7 @@
 <h3 id="2-3-3-全局内存"><a href="#2-3-3-全局内存" class="headerlink" title="2.3.3 全局内存"></a>2.3.3 全局内存</h3><h4 id="2-3-3-1-动态与静态全局内存"><a href="#2-3-3-1-动态与静态全局内存" class="headerlink" title="2.3.3.1 动态与静态全局内存"></a>2.3.3.1 动态与静态全局内存</h4><ul>
 <li><strong>动态全局内存管理</strong><br>cudaMalloc(), cudaMemcpy(), cudaFree()</li>
 <li><strong>静态全局内存</strong><ul>
-<li>通过<strong>device</strong>修饰符声明</li>
+<li>通过__device__修饰符声明</li>
 <li>使用cudaMemcpyToSymbol()与cudaMemcpyFromSymbol()在主机端与设备端之间拷贝<h4 id="2-3-3-2-统一内存寻址（unified-memory）"><a href="#2-3-3-2-统一内存寻址（unified-memory）" class="headerlink" title="2.3.3.2 统一内存寻址（unified memory）"></a>2.3.3.2 统一内存寻址（unified memory）</h4></li>
 </ul>
 </li>
