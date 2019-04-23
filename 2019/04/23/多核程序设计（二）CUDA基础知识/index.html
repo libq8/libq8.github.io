@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="CUDA,">
 
 
 
@@ -79,16 +79,47 @@
 
 
 
-<meta name="description" content="Knights have no sword">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Swordman">
-<meta property="og:url" content="https://libq8.github.io/index.html">
+<meta name="description" content="[TOC] 二、CUDA基础知识2.1GPU架构2.1.1 架构分类 Flynn’s taxonomy1972    年由费林（Michael J. Flynn ）提出根据指令和数据进入CPU的方式进行分类基础类别包含SISD: 经典的冯诺依曼架构SIMD：多个处理单元使用同样的指令处理不同的数据MISD：流水线架构MIMD：多个处理单元使用不同的指令处理不同的数据，MIMD扩展类别包含SPMD,">
+<meta name="keywords" content="CUDA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多核程序设计（二）CUDA基础知识">
+<meta property="og:url" content="https://libq8.github.io/2019/04/23/多核程序设计（二）CUDA基础知识/index.html">
 <meta property="og:site_name" content="Swordman">
-<meta property="og:description" content="Knights have no sword">
+<meta property="og:description" content="[TOC] 二、CUDA基础知识2.1GPU架构2.1.1 架构分类 Flynn’s taxonomy1972    年由费林（Michael J. Flynn ）提出根据指令和数据进入CPU的方式进行分类基础类别包含SISD: 经典的冯诺依曼架构SIMD：多个处理单元使用同样的指令处理不同的数据MISD：流水线架构MIMD：多个处理单元使用不同的指令处理不同的数据，MIMD扩展类别包含SPMD,">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839396971.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839433801.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839441964.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839457424.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839479786.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839486828.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839505842.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839543042.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839629655.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839708389.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839765906.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839785459.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839798542.png">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840020389.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840032752.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840044998.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840058228.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840077710.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840136140.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840151255.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840166656.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840178385.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555840190243.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839899804.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839913770.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839927733.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839947789.PNG">
+<meta property="og:image" content="https://libq8.coding.me//post-images/1555839985150.PNG">
+<meta property="og:updated_time" content="2019-04-23T09:12:41.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swordman">
-<meta name="twitter:description" content="Knights have no sword">
+<meta name="twitter:title" content="多核程序设计（二）CUDA基础知识">
+<meta name="twitter:description" content="[TOC] 二、CUDA基础知识2.1GPU架构2.1.1 架构分类 Flynn’s taxonomy1972    年由费林（Michael J. Flynn ）提出根据指令和数据进入CPU的方式进行分类基础类别包含SISD: 经典的冯诺依曼架构SIMD：多个处理单元使用同样的指令处理不同的数据MISD：流水线架构MIMD：多个处理单元使用不同的指令处理不同的数据，MIMD扩展类别包含SPMD,">
+<meta name="twitter:image" content="https://libq8.coding.me//post-images/1555839396971.png">
 
 
 
@@ -118,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="https://libq8.github.io/">
+  <link rel="canonical" href="https://libq8.github.io/2019/04/23/多核程序设计（二）CUDA基础知识/">
 
 
 
 
 
-  <title>Swordman</title>
+  <title>多核程序设计（二）CUDA基础知识 | Swordman</title>
   
 
 
@@ -143,8 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/libq8" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -249,9 +279,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -281,9 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/23/多核程序设计（二）CUDA基础知识/" itemprop="url">多核程序设计（二）CUDA基础知识</a></h1>
+          <h1 class="post-title" itemprop="name headline">多核程序设计（二）CUDA基础知识</h1>
         
 
         <div class="post-meta">
@@ -386,9 +414,7 @@
       
 
       
-        
-          
-            <p>[TOC]</p>
+        <p>[TOC]</p>
 <h1 id="二、CUDA基础知识"><a href="#二、CUDA基础知识" class="headerlink" title="二、CUDA基础知识"></a>二、CUDA基础知识</h1><h2 id="2-1GPU架构"><a href="#2-1GPU架构" class="headerlink" title="2.1GPU架构"></a>2.1GPU架构</h2><h3 id="2-1-1-架构分类"><a href="#2-1-1-架构分类" class="headerlink" title="2.1.1 架构分类"></a>2.1.1 架构分类</h3><ul>
 <li>Flynn’s taxonomy<br>1972    年由费林（Michael J. Flynn ）提出根据指令和数据进入CPU的方式进行分类<br>基础类别包含<br>SISD: 经典的冯诺依曼架构<br><img src="https://libq8.coding.me//post-images/1555839396971.png" alt><br>SIMD：多个处理单元使用同样的指令处理不同的数据<br><img src="https://libq8.coding.me//post-images/1555839433801.png" alt><br>MISD：流水线架构<br><img src="https://libq8.coding.me//post-images/1555839441964.png" alt><br>MIMD：多个处理单元使用不同的指令处理不同的数据，MIMD扩展类别包含SPMD,MPMD<br><img src="https://libq8.coding.me//post-images/1555839457424.png" alt><h3 id="2-1-2-CPU-vs-GPU"><a href="#2-1-2-CPU-vs-GPU" class="headerlink" title="2.1.2 CPU vs GPU"></a>2.1.2 CPU vs GPU</h3></li>
 <li><p>性能指标</p>
@@ -1117,8 +1143,6 @@
 </li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -1126,6 +1150,12 @@
     
 
 <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------The End<i class="fa fa-paw"></i>���Ľ���-------------</div>
+    
+</div>
     
 </div>
 
@@ -1137,331 +1167,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://libq8.github.io/2019/04/18/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Libq">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/04.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Swordman">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/18/test/" itemprop="url">'test'</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T12:41:27+08:00">
-                2019-04-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/CUDA/" rel="tag"># CUDA</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          
-        
-      
-    </div>
-    
-    
-    
-
-<div>
-    
-</div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://libq8.github.io/2019/04/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Libq">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/04.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Swordman">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/08/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+              <a href="/2019/04/18/test/" rel="next" title="'test'">
+                <i class="fa fa-chevron-left"></i> 'test'
+              </a>
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-08T17:36:32+08:00">
-                2019-04-08
-              </time>
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  73
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-<div>
-    
-</div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1471,10 +1206,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1482,6 +1218,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1502,8 +1242,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1593,6 +1342,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二、CUDA基础知识"><span class="nav-number">1.</span> <span class="nav-text">二、CUDA基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1GPU架构"><span class="nav-number">1.1.</span> <span class="nav-text">2.1GPU架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-架构分类"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.1.1 架构分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-CPU-vs-GPU"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.1.2 CPU vs GPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3-NVIDIA-GPU架构"><span class="nav-number">1.1.3.</span> <span class="nav-text">2.1.3 NVIDIA GPU架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-CUDA编程模型"><span class="nav-number">1.1.4.</span> <span class="nav-text">2.1.4 CUDA编程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-5-CUDA编程举例"><span class="nav-number">1.1.5.</span> <span class="nav-text">2.1.5 CUDA编程举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2CUDA线程"><span class="nav-number">1.2.</span> <span class="nav-text">2.2CUDA线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3内存结构"><span class="nav-number">1.3.</span> <span class="nav-text">2.3内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1线程组织与内存结构"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.3.1线程组织与内存结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-CUDA内存模型"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.3.2 CUDA内存模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-全局内存"><span class="nav-number">1.3.3.</span> <span class="nav-text">2.3.3 全局内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-1-动态与静态全局内存"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">2.3.3.1 动态与静态全局内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-2-统一内存寻址（unified-memory）"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">2.3.3.2 统一内存寻址（unified memory）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-3-深度拷贝"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">2.3.3.3 深度拷贝</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-常量内存"><span class="nav-number">1.3.4.</span> <span class="nav-text">2.3.4 常量内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-5-只读-纹理内存"><span class="nav-number">1.3.5.</span> <span class="nav-text">2.3.5 只读/纹理内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-6-共享内存"><span class="nav-number">1.3.6.</span> <span class="nav-text">2.3.6 共享内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-7-本地内存"><span class="nav-number">1.3.7.</span> <span class="nav-text">2.3.7 本地内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4通信同步机制"><span class="nav-number">1.4.</span> <span class="nav-text">2.4通信同步机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-线程执行模型"><span class="nav-number">1.4.1.</span> <span class="nav-text">2.4.1 线程执行模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-原子操作与同步"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.4.2 原子操作与同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-并行编程模型"><span class="nav-number">1.4.3.</span> <span class="nav-text">2.4.3 并行编程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-3-1-规约算法"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">2.4.3.1 规约算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-3-2-扫描算法"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">2.4.3.2 扫描算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5性能优化"><span class="nav-number">1.5.</span> <span class="nav-text">2.5性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-1-优化全局内存访问"><span class="nav-number">1.5.1.</span> <span class="nav-text">2.5.1 优化全局内存访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-优化占用率"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.5.2 优化占用率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-3-其他优化方法"><span class="nav-number">1.5.3.</span> <span class="nav-text">2.5.3 其他优化方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1743,6 +1508,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
