@@ -133,6 +133,8 @@
   <link rel="canonical" href="https://libq8.github.io/2019/03/28/blog/win10入门使用Github/">
 
 
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
 
 
 
@@ -411,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  388
+                  401
                 </span>
               
 
@@ -453,23 +455,49 @@
 
       
         <a id="more"></a>
-<h1 id="1-注册GitHub官网账号"><a href="#1-注册GitHub官网账号" class="headerlink" title="1.注册GitHub官网账号"></a>1.注册GitHub官网账号</h1><h3 id="GitHub官网地址"><a href="#GitHub官网地址" class="headerlink" title="GitHub官网地址"></a><a href="https://github.com" target="_blank" rel="noopener">GitHub官网地址</a></h3><h1 id="2-下载和安装Git"><a href="#2-下载和安装Git" class="headerlink" title="2.下载和安装Git"></a>2.下载和安装Git</h1><h3 id="git下载网址"><a href="#git下载网址" class="headerlink" title="git下载网址"></a><a href="https://git-scm.com/download" target="_blank" rel="noopener">git下载网址</a></h3><p>运行安装文件，根据个人选择配置路径，其他选项选取默认项</p>
-<h1 id="3-获取个人密匙"><a href="#3-获取个人密匙" class="headerlink" title="3.获取个人密匙"></a>3.获取个人密匙</h1><p>打开Git Bash，输入以下指令获取SSH KEY<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br><span class="line">#your_email@youremail.com改为你在github上注册的邮箱，路径与密码选择回车默认即可</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/7659992-92612db7f09bfe95?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>本例在/c/Users/libq8生成.ssh文件夹，进入.ssh文件夹打开id_rsa.pub文件，复制里面的key。</p>
-<h1 id="4-登录GitHub添加密匙"><a href="#4-登录GitHub添加密匙" class="headerlink" title="4.登录GitHub添加密匙"></a>4.登录GitHub添加密匙</h1><p>登录个人GitHub账号，选择settings -&gt;SSH and GPG keys，点击new SSH key，命名title并粘贴生成的SSH key。<br><img src="http://upload-images.jianshu.io/upload_images/7659992-c95c03187ce9e9df?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h1 id="5-绑定连接GitHub"><a href="#5-绑定连接GitHub" class="headerlink" title="5.绑定连接GitHub"></a>5.绑定连接GitHub</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h1 id="1注册github官网账号"><a class="markdownIt-Anchor" href="#1注册github官网账号"></a> 1.注册GitHub官网账号</h1>
+<h3 id="github官网地址"><a class="markdownIt-Anchor" href="#github官网地址"></a> <a href="https://github.com" target="_blank" rel="noopener">GitHub官网地址</a></h3>
+<h1 id="2下载和安装git"><a class="markdownIt-Anchor" href="#2下载和安装git"></a> 2.下载和安装Git</h1>
+<h3 id="git下载网址"><a class="markdownIt-Anchor" href="#git下载网址"></a> <a href="https://git-scm.com/download" target="_blank" rel="noopener">git下载网址</a></h3>
+<p>运行安装文件，根据个人选择配置路径，其他选项选取默认项</p>
+<h1 id="3获取个人密匙"><a class="markdownIt-Anchor" href="#3获取个人密匙"></a> 3.获取个人密匙</h1>
+<p>打开Git Bash，输入以下指令获取SSH KEY</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br><span class="line">#your_email@youremail.com改为你在github上注册的邮箱，路径与密码选择回车默认即可</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-92612db7f09bfe95?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>
+本例在/c/Users/libq8生成.ssh文件夹，进入.ssh文件夹打开id_rsa.pub文件，复制里面的key。</p>
+<h1 id="4登录github添加密匙"><a class="markdownIt-Anchor" href="#4登录github添加密匙"></a> 4.登录GitHub添加密匙</h1>
+<p>登录个人GitHub账号，选择settings -&gt;SSH and GPG keys，点击new SSH key，命名title并粘贴生成的SSH key。<br>
+<img src="http://upload-images.jianshu.io/upload_images/7659992-c95c03187ce9e9df?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h1 id="5绑定连接github"><a class="markdownIt-Anchor" href="#5绑定连接github"></a> 5.绑定连接GitHub</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/7659992-40155e475518fea3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h1 id="6-设置username和email"><a href="#6-设置username和email" class="headerlink" title="6.设置username和email"></a>6.设置username和email</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;your name&quot;</span><br><span class="line">$ git config --global user.email &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
-<h1 id="7-克隆仓库到本地"><a href="#7-克隆仓库到本地" class="headerlink" title="7.克隆仓库到本地"></a>7.克隆仓库到本地</h1><h3 id="7-1新建仓库："><a href="#7-1新建仓库：" class="headerlink" title="7.1新建仓库："></a>7.1新建仓库：</h3><p>登录GitHub账号，选择your repositories-&gt;new<br><img src="http://upload-images.jianshu.io/upload_images/7659992-5a7ff616a3f35306.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><img src="http://upload-images.jianshu.io/upload_images/7659992-525fea46becb905a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h3 id="7-2查看仓库网址："><a href="#7-2查看仓库网址：" class="headerlink" title="7.2查看仓库网址："></a>7.2查看仓库网址：</h3><p><img src="http://upload-images.jianshu.io/upload_images/7659992-4bc6f920a1c03b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h3 id="7-3输入克隆指令"><a href="#7-3输入克隆指令" class="headerlink" title="7.3输入克隆指令"></a>7.3输入克隆指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:libq8/mygit.git</span><br></pre></td></tr></table></figure>
+<h1 id="6设置username和email"><a class="markdownIt-Anchor" href="#6设置username和email"></a> 6.设置username和email</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;your name&quot;</span><br><span class="line">$ git config --global user.email &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="7克隆仓库到本地"><a class="markdownIt-Anchor" href="#7克隆仓库到本地"></a> 7.克隆仓库到本地</h1>
+<h3 id="71新建仓库"><a class="markdownIt-Anchor" href="#71新建仓库"></a> 7.1新建仓库：</h3>
+<p>登录GitHub账号，选择your repositories-&gt;new<br>
+<img src="http://upload-images.jianshu.io/upload_images/7659992-5a7ff616a3f35306.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br>
+<img src="http://upload-images.jianshu.io/upload_images/7659992-525fea46becb905a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h3 id="72查看仓库网址"><a class="markdownIt-Anchor" href="#72查看仓库网址"></a> 7.2查看仓库网址：</h3>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-4bc6f920a1c03b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h3 id="73输入克隆指令"><a class="markdownIt-Anchor" href="#73输入克隆指令"></a> 7.3输入克隆指令</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:libq8/mygit.git</span><br></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/7659992-3c14538acb8ddee8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h1 id="8-在本地文件夹添加文件并上传"><a href="#8-在本地文件夹添加文件并上传" class="headerlink" title="8.在本地文件夹添加文件并上传"></a>8.在本地文件夹添加文件并上传</h1><h4 id="8-1进入本地文件夹，创建test-txt文件，在Git-Bash中使用ls指令查看"><a href="#8-1进入本地文件夹，创建test-txt文件，在Git-Bash中使用ls指令查看" class="headerlink" title="8.1进入本地文件夹，创建test.txt文件，在Git Bash中使用ls指令查看"></a>8.1进入本地文件夹，创建test.txt文件，在Git Bash中使用ls指令查看</h4><h4 id="8-2提出更改（添加到暂存区）"><a href="#8-2提出更改（添加到暂存区）" class="headerlink" title="8.2提出更改（添加到暂存区）"></a>8.2提出更改（添加到暂存区）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br><span class="line">git add *</span><br></pre></td></tr></table></figure>
-<h4 id="8-3提交到HEAD"><a href="#8-3提交到HEAD" class="headerlink" title="8.3提交到HEAD"></a>8.3提交到HEAD</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;代码提交信息&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="8-4提交到远端仓库"><a href="#8-4提交到远端仓库" class="headerlink" title="8.4提交到远端仓库"></a>8.4提交到远端仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-<p>分支是用来将特性开发绝缘开来的。在创建仓库时，master 是”默认的”分支。<br><img src="http://upload-images.jianshu.io/upload_images/7659992-0b60f7da61faca44?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h4 id="8-5查看远程仓库"><a href="#8-5查看远程仓库" class="headerlink" title="8.5查看远程仓库"></a>8.5查看远程仓库</h4><p><img src="http://upload-images.jianshu.io/upload_images/7659992-1f6ea23f9875441c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h1 id="9-参考"><a href="#9-参考" class="headerlink" title="9.参考"></a>9.参考</h1><p><a href="https://blog.csdn.net/Hanani_Jia/article/details/77950594" target="_blank" rel="noopener">GitHub 新手详细教程</a><br><a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="noopener">Github 简明教程</a></p>
+<h1 id="8在本地文件夹添加文件并上传"><a class="markdownIt-Anchor" href="#8在本地文件夹添加文件并上传"></a> 8.在本地文件夹添加文件并上传</h1>
+<h4 id="81进入本地文件夹创建testtxt文件在git-bash中使用ls指令查看"><a class="markdownIt-Anchor" href="#81进入本地文件夹创建testtxt文件在git-bash中使用ls指令查看"></a> 8.1进入本地文件夹，创建test.txt文件，在Git Bash中使用ls指令查看</h4>
+<h4 id="82提出更改添加到暂存区"><a class="markdownIt-Anchor" href="#82提出更改添加到暂存区"></a> 8.2提出更改（添加到暂存区）</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br><span class="line">git add *</span><br></pre></td></tr></table></figure>
+<h4 id="83提交到head"><a class="markdownIt-Anchor" href="#83提交到head"></a> 8.3提交到HEAD</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;代码提交信息&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="84提交到远端仓库"><a class="markdownIt-Anchor" href="#84提交到远端仓库"></a> 8.4提交到远端仓库</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>分支是用来将特性开发绝缘开来的。在创建仓库时，master 是&quot;默认的&quot;分支。<br>
+<img src="http://upload-images.jianshu.io/upload_images/7659992-0b60f7da61faca44?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h4 id="85查看远程仓库"><a class="markdownIt-Anchor" href="#85查看远程仓库"></a> 8.5查看远程仓库</h4>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-1f6ea23f9875441c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h1 id="9参考"><a class="markdownIt-Anchor" href="#9参考"></a> 9.参考</h1>
+<p><a href="https://blog.csdn.net/Hanani_Jia/article/details/77950594" target="_blank" rel="noopener">GitHub 新手详细教程</a><br>
+<a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="noopener">Github 简明教程</a></p>
 
       
     </div>
@@ -528,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/28/blog/firstblog/" rel="next" title="firstblog">
-                <i class="fa fa-chevron-left"></i> firstblog
+              <a href="/2019/03/28/blog/欢迎使用Markdown编辑器/" rel="next" title="Markdown编辑器使用说明">
+                <i class="fa fa-chevron-left"></i> Markdown编辑器使用说明
               </a>
             
           </div>
@@ -538,8 +566,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/28/blog/Ubuntu18.10下使用Anaconda3安装TensorFlow/" rel="prev" title="Ubuntu18.10下使用Anaconda3安装TensorFlow">
-                Ubuntu18.10下使用Anaconda3安装TensorFlow <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/28/blog/Ubuntu18.10安装Anaconda3/" rel="prev" title="Ubuntu18.10安装Anaconda3">
+                Ubuntu18.10安装Anaconda3 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -705,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-注册GitHub官网账号"><span class="nav-text">1.注册GitHub官网账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub官网地址"><span class="nav-text">GitHub官网地址</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2-下载和安装Git"><span class="nav-text">2.下载和安装Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git下载网址"><span class="nav-text">git下载网址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-获取个人密匙"><span class="nav-text">3.获取个人密匙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-登录GitHub添加密匙"><span class="nav-text">4.登录GitHub添加密匙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-绑定连接GitHub"><span class="nav-text">5.绑定连接GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-设置username和email"><span class="nav-text">6.设置username和email</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-克隆仓库到本地"><span class="nav-text">7.克隆仓库到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1新建仓库："><span class="nav-text">7.1新建仓库：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2查看仓库网址："><span class="nav-text">7.2查看仓库网址：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3输入克隆指令"><span class="nav-text">7.3输入克隆指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-在本地文件夹添加文件并上传"><span class="nav-text">8.在本地文件夹添加文件并上传</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1进入本地文件夹，创建test-txt文件，在Git-Bash中使用ls指令查看"><span class="nav-text">8.1进入本地文件夹，创建test.txt文件，在Git Bash中使用ls指令查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2提出更改（添加到暂存区）"><span class="nav-text">8.2提出更改（添加到暂存区）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3提交到HEAD"><span class="nav-text">8.3提交到HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-4提交到远端仓库"><span class="nav-text">8.4提交到远端仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-5查看远程仓库"><span class="nav-text">8.5查看远程仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-参考"><span class="nav-text">9.参考</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1注册github官网账号"><span class="nav-text"> 1.注册GitHub官网账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#github官网地址"><span class="nav-text"> GitHub官网地址</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2下载和安装git"><span class="nav-text"> 2.下载和安装Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git下载网址"><span class="nav-text"> git下载网址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3获取个人密匙"><span class="nav-text"> 3.获取个人密匙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4登录github添加密匙"><span class="nav-text"> 4.登录GitHub添加密匙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5绑定连接github"><span class="nav-text"> 5.绑定连接GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6设置username和email"><span class="nav-text"> 6.设置username和email</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7克隆仓库到本地"><span class="nav-text"> 7.克隆仓库到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#71新建仓库"><span class="nav-text"> 7.1新建仓库：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#72查看仓库网址"><span class="nav-text"> 7.2查看仓库网址：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#73输入克隆指令"><span class="nav-text"> 7.3输入克隆指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8在本地文件夹添加文件并上传"><span class="nav-text"> 8.在本地文件夹添加文件并上传</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#81进入本地文件夹创建testtxt文件在git-bash中使用ls指令查看"><span class="nav-text"> 8.1进入本地文件夹，创建test.txt文件，在Git Bash中使用ls指令查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#82提出更改添加到暂存区"><span class="nav-text"> 8.2提出更改（添加到暂存区）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#83提交到head"><span class="nav-text"> 8.3提交到HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#84提交到远端仓库"><span class="nav-text"> 8.4提交到远端仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#85查看远程仓库"><span class="nav-text"> 8.5查看远程仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9参考"><span class="nav-text"> 9.参考</span></a></li></div>
             
 
           </div>
@@ -746,7 +774,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.4k</span>
+    <span title="Site words total count">15.6k</span>
   
 </div>
 

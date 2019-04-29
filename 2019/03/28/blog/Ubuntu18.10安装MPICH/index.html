@@ -128,6 +128,8 @@
   <link rel="canonical" href="https://libq8.github.io/2019/03/28/blog/Ubuntu18.10安装MPICH/">
 
 
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
 
 
 
@@ -406,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  299
+                  307
                 </span>
               
 
@@ -448,29 +450,59 @@
 
       
         <a id="more"></a>
-<h2 id="1-官网下载压缩文件：官网下载网址"><a href="#1-官网下载压缩文件：官网下载网址" class="headerlink" title="1.官网下载压缩文件：官网下载网址"></a>1.官网下载压缩文件：<a href="http://www.mpich.org/downloads/" target="_blank" rel="noopener">官网下载网址</a></h2><p>本例选择mpich-3.3<br><img src="http://upload-images.jianshu.io/upload_images/7659992-b4df10f4a9225c9f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h2 id="2-编译器检查"><a href="#2-编译器检查" class="headerlink" title="2.编译器检查"></a>2.编译器检查</h2><blockquote>
-<h3 id="gcc-–version"><a href="#gcc-–version" class="headerlink" title="gcc –version"></a>gcc –version</h3><h3 id="g-–version"><a href="#g-–version" class="headerlink" title="g++ –version"></a>g++ –version</h3><h3 id="gfortran-–version"><a href="#gfortran-–version" class="headerlink" title="gfortran –version"></a>gfortran –version</h3><h3 id="echo-SHELL"><a href="#echo-SHELL" class="headerlink" title="echo $SHELL"></a>echo $SHELL</h3><p><img src="http://upload-images.jianshu.io/upload_images/7659992-24a4820e068d4ac7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-</blockquote>
-<h4 id="如果尚未安装对应的编译器，可执行sudo-apt-install-XXX命令进行安装"><a href="#如果尚未安装对应的编译器，可执行sudo-apt-install-XXX命令进行安装" class="headerlink" title="如果尚未安装对应的编译器，可执行sudo apt install XXX命令进行安装"></a>如果尚未安装对应的编译器，可执行sudo apt install XXX命令进行安装</h4><h2 id="3-解压与配置"><a href="#3-解压与配置" class="headerlink" title="3.解压与配置"></a>3.解压与配置</h2><p>创建安装文件夹 :</p>
+<h2 id="1官网下载压缩文件官网下载网址"><a class="markdownIt-Anchor" href="#1官网下载压缩文件官网下载网址"></a> 1.官网下载压缩文件：<a href="http://www.mpich.org/downloads/" target="_blank" rel="noopener">官网下载网址</a></h2>
+<p>本例选择mpich-3.3<br>
+<img src="http://upload-images.jianshu.io/upload_images/7659992-b4df10f4a9225c9f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h2 id="2编译器检查"><a class="markdownIt-Anchor" href="#2编译器检查"></a> 2.编译器检查</h2>
 <blockquote>
-<h5 id="mkdir-mpich-install"><a href="#mkdir-mpich-install" class="headerlink" title="mkdir mpich-install"></a>mkdir mpich-install</h5><p>解压文件：</p>
-<h5 id="执行命令tar-zxvf-mpich-3-3-tar-gz或右键提取"><a href="#执行命令tar-zxvf-mpich-3-3-tar-gz或右键提取" class="headerlink" title="执行命令tar -zxvf mpich-3.3.tar.gz或右键提取"></a>执行命令tar -zxvf mpich-3.3.tar.gz或右键提取</h5><p>进入解压文件夹：</p>
-<h5 id="cd-mpich-3-3"><a href="#cd-mpich-3-3" class="headerlink" title="cd mpich-3.3"></a>cd mpich-3.3</h5><p>配置安装路径：</p>
-<h5 id="configure-prefix-home-username-software-mpich-install"><a href="#configure-prefix-home-username-software-mpich-install" class="headerlink" title="./configure -prefix=/home/[username]/software/mpich-install"></a>./configure -prefix=/home/[username]/software/mpich-install</h5></blockquote>
-<h2 id="4-编译安装"><a href="#4-编译安装" class="headerlink" title="4.编译安装"></a>4.编译安装</h2><blockquote>
-<h5 id="make"><a href="#make" class="headerlink" title="make"></a>make</h5><h5 id="make-install"><a href="#make-install" class="headerlink" title="make install"></a>make install</h5></blockquote>
-<h2 id="5-添加环境变量"><a href="#5-添加环境变量" class="headerlink" title="5.添加环境变量"></a>5.添加环境变量</h2><blockquote>
-<h5 id="sudo-gedit-bashrc"><a href="#sudo-gedit-bashrc" class="headerlink" title="sudo gedit ~/.bashrc"></a>sudo gedit ~/.bashrc</h5><p>末尾添加</p>
-<h5 id="export-MPI-ROOT-home-username-software-mpich-install（必须是绝对路径）"><a href="#export-MPI-ROOT-home-username-software-mpich-install（必须是绝对路径）" class="headerlink" title="export MPI_ROOT=/home/[username]/software/mpich-install（必须是绝对路径）"></a>export MPI_ROOT=/home/[username]/software/mpich-install（必须是绝对路径）</h5><h5 id="export-PATH-MPI-ROOT-bin-PATH"><a href="#export-PATH-MPI-ROOT-bin-PATH" class="headerlink" title="export PATH=\$MPI_ROOT/bin:$PATH"></a>export PATH=\$MPI_ROOT/bin:$PATH</h5><h5 id="export-MANPATH-MPI-ROOT-man-MANPATH"><a href="#export-MANPATH-MPI-ROOT-man-MANPATH" class="headerlink" title="export MANPATH=\$MPI_ROOT/man:$MANPATH"></a>export MANPATH=\$MPI_ROOT/man:$MANPATH</h5><p>激活环境变量</p>
-<h5 id="source-bashrc"><a href="#source-bashrc" class="headerlink" title="source .bashrc"></a>source .bashrc</h5></blockquote>
-<h2 id="6-测试"><a href="#6-测试" class="headerlink" title="6.测试"></a>6.测试</h2><p>查看命令</p>
-<blockquote>
-<h5 id="which-mpicc"><a href="#which-mpicc" class="headerlink" title="which mpicc"></a>which mpicc</h5><p>使用官方测试文件：mpirun或mpiexec命令</p>
-<h5 id="mpirun-np-10-examples-cpi"><a href="#mpirun-np-10-examples-cpi" class="headerlink" title="mpirun -np 10 ./examples/cpi"></a>mpirun -np 10 ./examples/cpi</h5><h5 id="mpiexec-n-4-examples-cpi"><a href="#mpiexec-n-4-examples-cpi" class="headerlink" title="mpiexec -n 4 ./examples/cpi"></a>mpiexec -n 4 ./examples/cpi</h5><p><img src="http://upload-images.jianshu.io/upload_images/7659992-4f600482a53d05e2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>样例测试：保存mpi_test.cpp文件，使用mpic++编译后使用mpirun执行<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mpi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> myid, numprocs;</span><br><span class="line">	MPI_Init (&amp;argc, &amp;argv);</span><br><span class="line">	MPI_Comm_rank (MPI_COMM_WORLD, &amp;myid);</span><br><span class="line">	MPI_Comm_size (MPI_COMM_WORLD, &amp;numprocs);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello from process_"</span>&lt;&lt;myid&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	MPI_Finalize();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="gcc-version"><a class="markdownIt-Anchor" href="#gcc-version"></a> gcc --version</h3>
+<h3 id="g-version"><a class="markdownIt-Anchor" href="#g-version"></a> g++ --version</h3>
+<h3 id="gfortran-version"><a class="markdownIt-Anchor" href="#gfortran-version"></a> gfortran --version</h3>
+<h3 id="echo-shell"><a class="markdownIt-Anchor" href="#echo-shell"></a> echo $SHELL</h3>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-24a4820e068d4ac7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
 </blockquote>
+<h4 id="如果尚未安装对应的编译器可执行sudo-apt-install-xxx命令进行安装"><a class="markdownIt-Anchor" href="#如果尚未安装对应的编译器可执行sudo-apt-install-xxx命令进行安装"></a> 如果尚未安装对应的编译器，可执行sudo apt install XXX命令进行安装</h4>
+<h2 id="3解压与配置"><a class="markdownIt-Anchor" href="#3解压与配置"></a> 3.解压与配置</h2>
+<p>创建安装文件夹 :</p>
+<blockquote>
+<h5 id="mkdir-mpich-install"><a class="markdownIt-Anchor" href="#mkdir-mpich-install"></a> mkdir mpich-install</h5>
+<p>解压文件：</p>
+<h5 id="执行命令tar-zxvf-mpich-33targz或右键提取"><a class="markdownIt-Anchor" href="#执行命令tar-zxvf-mpich-33targz或右键提取"></a> 执行命令tar -zxvf mpich-3.3.tar.gz或右键提取</h5>
+<p>进入解压文件夹：</p>
+<h5 id="cd-mpich-33"><a class="markdownIt-Anchor" href="#cd-mpich-33"></a> cd mpich-3.3</h5>
+<p>配置安装路径：</p>
+<h5 id="configure-prefixhomeusernamesoftwarempich-install"><a class="markdownIt-Anchor" href="#configure-prefixhomeusernamesoftwarempich-install"></a> ./configure -prefix=/home/[username]/software/mpich-install</h5>
+</blockquote>
+<h2 id="4编译安装"><a class="markdownIt-Anchor" href="#4编译安装"></a> 4.编译安装</h2>
+<blockquote>
+<h5 id="make"><a class="markdownIt-Anchor" href="#make"></a> make</h5>
+<h5 id="make-install"><a class="markdownIt-Anchor" href="#make-install"></a> make install</h5>
+</blockquote>
+<h2 id="5添加环境变量"><a class="markdownIt-Anchor" href="#5添加环境变量"></a> 5.添加环境变量</h2>
+<blockquote>
+<h5 id="sudo-gedit-~bashrc"><a class="markdownIt-Anchor" href="#sudo-gedit-~bashrc"></a> sudo gedit ~/.bashrc</h5>
+<p>末尾添加</p>
+<h5 id="export-mpi_roothomeusernamesoftwarempich-install必须是绝对路径"><a class="markdownIt-Anchor" href="#export-mpi_roothomeusernamesoftwarempich-install必须是绝对路径"></a> export MPI_ROOT=/home/[username]/software/mpich-install（必须是绝对路径）</h5>
+<h5 id="export-pathmpi_rootbinpath"><a class="markdownIt-Anchor" href="#export-pathmpi_rootbinpath"></a> export PATH=$MPI_ROOT/bin:$PATH</h5>
+<h5 id="export-manpathmpi_rootmanmanpath"><a class="markdownIt-Anchor" href="#export-manpathmpi_rootmanmanpath"></a> export MANPATH=$MPI_ROOT/man:$MANPATH</h5>
+<p>激活环境变量</p>
+<h5 id="source-bashrc"><a class="markdownIt-Anchor" href="#source-bashrc"></a> source .bashrc</h5>
+</blockquote>
+<h2 id="6测试"><a class="markdownIt-Anchor" href="#6测试"></a> 6.测试</h2>
+<p>查看命令</p>
+<blockquote>
+<h5 id="which-mpicc"><a class="markdownIt-Anchor" href="#which-mpicc"></a> which mpicc</h5>
+<p>使用官方测试文件：mpirun或mpiexec命令</p>
+<h5 id="mpirun-np-10-examplescpi"><a class="markdownIt-Anchor" href="#mpirun-np-10-examplescpi"></a> mpirun -np 10 ./examples/cpi</h5>
+<h5 id="mpiexec-n-4-examplescpi"><a class="markdownIt-Anchor" href="#mpiexec-n-4-examplescpi"></a> mpiexec -n 4 ./examples/cpi</h5>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-4f600482a53d05e2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>
+样例测试：保存mpi_test.cpp文件，使用mpic++编译后使用mpirun执行</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mpi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> myid, numprocs;</span><br><span class="line">	MPI_Init (&amp;argc, &amp;argv);</span><br><span class="line">	MPI_Comm_rank (MPI_COMM_WORLD, &amp;myid);</span><br><span class="line">	MPI_Comm_size (MPI_COMM_WORLD, &amp;numprocs);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello from process_"</span>&lt;&lt;myid&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	MPI_Finalize();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/7659992-80ba8bbc662d3464.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<p>参考：<br><a href="https://blog.csdn.net/u010177634/article/details/53048371" target="_blank" rel="noopener">ubuntu16.04一步一步安装配置mpich</a><br><a href="https://blog.csdn.net/qq_30239975/article/details/77703321" target="_blank" rel="noopener">我的并行计算之路（一）Ubuntu 16.04下的MPI安装</a></p>
+<p>参考：<br>
+<a href="https://blog.csdn.net/u010177634/article/details/53048371" target="_blank" rel="noopener">ubuntu16.04一步一步安装配置mpich</a><br>
+<a href="https://blog.csdn.net/qq_30239975/article/details/77703321" target="_blank" rel="noopener">我的并行计算之路（一）Ubuntu 16.04下的MPI安装</a></p>
 
       
     </div>
@@ -531,8 +563,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/28/blog/win10入门使用LaTeX/" rel="next" title="win10入门使用LaTeX">
-                <i class="fa fa-chevron-left"></i> win10入门使用LaTeX
+              <a href="/2019/03/28/blog/firstblog/" rel="next" title="firstblog">
+                <i class="fa fa-chevron-left"></i> firstblog
               </a>
             
           </div>
@@ -541,8 +573,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/28/blog/阿里云ECS安装jupyter+notebook/" rel="prev" title="在阿里云ECSLinux系统上安装jupyter notebook">
-                在阿里云ECSLinux系统上安装jupyter notebook <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/28/blog/使用VMware14安装Ubuntu18.10/" rel="prev" title="使用VMware14安装Ubuntu18.10">
+                使用VMware14安装Ubuntu18.10 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -708,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-官网下载压缩文件：官网下载网址"><span class="nav-text">1.官网下载压缩文件：官网下载网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编译器检查"><span class="nav-text">2.编译器检查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gcc-–version"><span class="nav-text">gcc –version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#g-–version"><span class="nav-text">g++ –version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gfortran-–version"><span class="nav-text">gfortran –version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-SHELL"><span class="nav-text">echo $SHELL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果尚未安装对应的编译器，可执行sudo-apt-install-XXX命令进行安装"><span class="nav-text">如果尚未安装对应的编译器，可执行sudo apt install XXX命令进行安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-解压与配置"><span class="nav-text">3.解压与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mkdir-mpich-install"><span class="nav-text">mkdir mpich-install</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行命令tar-zxvf-mpich-3-3-tar-gz或右键提取"><span class="nav-text">执行命令tar -zxvf mpich-3.3.tar.gz或右键提取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cd-mpich-3-3"><span class="nav-text">cd mpich-3.3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#configure-prefix-home-username-software-mpich-install"><span class="nav-text">./configure -prefix=/home/[username]/software/mpich-install</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#4-编译安装"><span class="nav-text">4.编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#make"><span class="nav-text">make</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#make-install"><span class="nav-text">make install</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-添加环境变量"><span class="nav-text">5.添加环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sudo-gedit-bashrc"><span class="nav-text">sudo gedit ~/.bashrc</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#export-MPI-ROOT-home-username-software-mpich-install（必须是绝对路径）"><span class="nav-text">export MPI_ROOT=/home/[username]/software/mpich-install（必须是绝对路径）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#export-PATH-MPI-ROOT-bin-PATH"><span class="nav-text">export PATH=\$MPI_ROOT/bin:$PATH</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#export-MANPATH-MPI-ROOT-man-MANPATH"><span class="nav-text">export MANPATH=\$MPI_ROOT/man:$MANPATH</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#source-bashrc"><span class="nav-text">source .bashrc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-测试"><span class="nav-text">6.测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#which-mpicc"><span class="nav-text">which mpicc</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mpirun-np-10-examples-cpi"><span class="nav-text">mpirun -np 10 ./examples/cpi</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mpiexec-n-4-examples-cpi"><span class="nav-text">mpiexec -n 4 ./examples/cpi</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1官网下载压缩文件官网下载网址"><span class="nav-text"> 1.官网下载压缩文件：官网下载网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2编译器检查"><span class="nav-text"> 2.编译器检查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gcc-version"><span class="nav-text"> gcc --version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#g-version"><span class="nav-text"> g++ --version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gfortran-version"><span class="nav-text"> gfortran --version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-shell"><span class="nav-text"> echo $SHELL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果尚未安装对应的编译器可执行sudo-apt-install-xxx命令进行安装"><span class="nav-text"> 如果尚未安装对应的编译器，可执行sudo apt install XXX命令进行安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3解压与配置"><span class="nav-text"> 3.解压与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mkdir-mpich-install"><span class="nav-text"> mkdir mpich-install</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行命令tar-zxvf-mpich-33targz或右键提取"><span class="nav-text"> 执行命令tar -zxvf mpich-3.3.tar.gz或右键提取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cd-mpich-33"><span class="nav-text"> cd mpich-3.3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#configure-prefixhomeusernamesoftwarempich-install"><span class="nav-text"> ./configure -prefix=/home/[username]/software/mpich-install</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#4编译安装"><span class="nav-text"> 4.编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#make"><span class="nav-text"> make</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#make-install"><span class="nav-text"> make install</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5添加环境变量"><span class="nav-text"> 5.添加环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sudo-gedit-~bashrc"><span class="nav-text"> sudo gedit ~/.bashrc</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#export-mpi_roothomeusernamesoftwarempich-install必须是绝对路径"><span class="nav-text"> export MPI_ROOT=/home/[username]/software/mpich-install（必须是绝对路径）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#export-pathmpi_rootbinpath"><span class="nav-text"> export PATH=$MPI_ROOT/bin:$PATH</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#export-manpathmpi_rootmanmanpath"><span class="nav-text"> export MANPATH=$MPI_ROOT/man:$MANPATH</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#source-bashrc"><span class="nav-text"> source .bashrc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6测试"><span class="nav-text"> 6.测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#which-mpicc"><span class="nav-text"> which mpicc</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mpirun-np-10-examplescpi"><span class="nav-text"> mpirun -np 10 ./examples/cpi</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mpiexec-n-4-examplescpi"><span class="nav-text"> mpiexec -n 4 ./examples/cpi</span></a></li></ol></li></div>
             
 
           </div>
@@ -749,7 +781,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.4k</span>
+    <span title="Site words total count">15.6k</span>
   
 </div>
 

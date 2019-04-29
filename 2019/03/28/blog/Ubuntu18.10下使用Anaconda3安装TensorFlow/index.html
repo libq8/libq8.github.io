@@ -132,6 +132,8 @@
   <link rel="canonical" href="https://libq8.github.io/2019/03/28/blog/Ubuntu18.10下使用Anaconda3安装TensorFlow/">
 
 
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
 
 
 
@@ -410,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  191
+                  196
                 </span>
               
 
@@ -452,24 +454,44 @@
 
       
         <a id="more"></a>
-<h1 id="1-环境说明（tensorflow只支持64位）"><a href="#1-环境说明（tensorflow只支持64位）" class="headerlink" title="1.环境说明（tensorflow只支持64位）"></a>1.环境说明（tensorflow只支持64位）</h1><blockquote>
-<h4 id="Ubuntu18-10-64位"><a href="#Ubuntu18-10-64位" class="headerlink" title="Ubuntu18.10-64位"></a>Ubuntu18.10-64位</h4><h4 id="Anaconda3-1-7-2"><a href="#Anaconda3-1-7-2" class="headerlink" title="Anaconda3-1.7.2"></a>Anaconda3-1.7.2</h4><h4 id="conda-4-6-2"><a href="#conda-4-6-2" class="headerlink" title="conda-4.6.2"></a>conda-4.6.2</h4><h4 id="python-3-7-1"><a href="#python-3-7-1" class="headerlink" title="python-3.7.1"></a>python-3.7.1</h4><p><img src="http://upload-images.jianshu.io/upload_images/7659992-ffab241321570bbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-</blockquote>
-<h1 id="2-新建虚拟环境"><a href="#2-新建虚拟环境" class="headerlink" title="2.新建虚拟环境"></a>2.新建虚拟环境</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n env_name python=version</span><br><span class="line">#env_name为新建的环境名，version为已安装的Python版本号</span><br></pre></td></tr></table></figure>
-<p>本例使用Python3.7.1创建虚拟环境tensorflow_3.7.1<br><img src="http://upload-images.jianshu.io/upload_images/7659992-5370f817ca4f4838.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>创建成功，提示激活和退出指令<br><img src="http://upload-images.jianshu.io/upload_images/7659992-8786c5e7f7787f11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h1 id="3-查看已有虚拟环境"><a href="#3-查看已有虚拟环境" class="headerlink" title="3.查看已有虚拟环境"></a>3.查看已有虚拟环境</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/7659992-0550f1b7e17d7dfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>base为默认虚拟环境，tensorflow3.7.1为刚刚新建的虚拟环境</p>
-<h1 id="4-激活虚拟环境"><a href="#4-激活虚拟环境" class="headerlink" title="4.激活虚拟环境"></a>4.激活虚拟环境</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate env_name</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/7659992-8c90b085112fd482.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h1 id="5-安装TensorFlow"><a href="#5-安装TensorFlow" class="headerlink" title="5.安装TensorFlow"></a>5.安装TensorFlow</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/7659992-91e1d379caadb8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<h1 id="6-测试"><a href="#6-测试" class="headerlink" title="6.测试"></a>6.测试</h1><p>打开Python3，输入以下测试代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line"> </span><br><span class="line">message = tf.constant(&apos;hello world&apos;)</span><br><span class="line">sess=tf.Session()</span><br><span class="line"> </span><br><span class="line">print(sess.run(message))</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/7659992-d1a02afdc9af6813?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>执行结果：</p>
+<h1 id="1环境说明tensorflow只支持64位"><a class="markdownIt-Anchor" href="#1环境说明tensorflow只支持64位"></a> 1.环境说明（tensorflow只支持64位）</h1>
 <blockquote>
-<h4 id="b’hello-world’"><a href="#b’hello-world’" class="headerlink" title="b’hello world’"></a>b’hello world’</h4></blockquote>
-<h1 id="7-退出虚拟环境"><a href="#7-退出虚拟环境" class="headerlink" title="7.退出虚拟环境"></a>7.退出虚拟环境</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<h4 id="ubuntu1810-64位"><a class="markdownIt-Anchor" href="#ubuntu1810-64位"></a> Ubuntu18.10-64位</h4>
+<h4 id="anaconda3-172"><a class="markdownIt-Anchor" href="#anaconda3-172"></a> Anaconda3-1.7.2</h4>
+<h4 id="conda-462"><a class="markdownIt-Anchor" href="#conda-462"></a> conda-4.6.2</h4>
+<h4 id="python-371"><a class="markdownIt-Anchor" href="#python-371"></a> python-3.7.1</h4>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-ffab241321570bbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+</blockquote>
+<h1 id="2新建虚拟环境"><a class="markdownIt-Anchor" href="#2新建虚拟环境"></a> 2.新建虚拟环境</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n env_name python=version</span><br><span class="line">#env_name为新建的环境名，version为已安装的Python版本号</span><br></pre></td></tr></table></figure>
+<p>本例使用Python3.7.1创建虚拟环境tensorflow_3.7.1<br>
+<img src="http://upload-images.jianshu.io/upload_images/7659992-5370f817ca4f4838.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>
+创建成功，提示激活和退出指令<br>
+<img src="http://upload-images.jianshu.io/upload_images/7659992-8786c5e7f7787f11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h1 id="3查看已有虚拟环境"><a class="markdownIt-Anchor" href="#3查看已有虚拟环境"></a> 3.查看已有虚拟环境</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-0550f1b7e17d7dfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>
+base为默认虚拟环境，tensorflow3.7.1为刚刚新建的虚拟环境</p>
+<h1 id="4激活虚拟环境"><a class="markdownIt-Anchor" href="#4激活虚拟环境"></a> 4.激活虚拟环境</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate env_name</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-8c90b085112fd482.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
+<h1 id="5安装tensorflow"><a class="markdownIt-Anchor" href="#5安装tensorflow"></a> 5.安装TensorFlow</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-91e1d379caadb8ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h1 id="6测试"><a class="markdownIt-Anchor" href="#6测试"></a> 6.测试</h1>
+<p>打开Python3，输入以下测试代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line"> </span><br><span class="line">message = tf.constant(&apos;hello world&apos;)</span><br><span class="line">sess=tf.Session()</span><br><span class="line"> </span><br><span class="line">print(sess.run(message))</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7659992-d1a02afdc9af6813?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"><br>
+执行结果：</p>
+<blockquote>
+<h4 id="bhello-world"><a class="markdownIt-Anchor" href="#bhello-world"></a> b’hello world’</h4>
+</blockquote>
+<h1 id="7退出虚拟环境"><a class="markdownIt-Anchor" href="#7退出虚拟环境"></a> 7.退出虚拟环境</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/7659992-1fbcb0624beeb171.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在这里插入图片描述"></p>
-<h1 id="8-参考"><a href="#8-参考" class="headerlink" title="8.参考"></a>8.参考</h1><p><a href="https://blog.csdn.net/weixin_42001089/article/details/81807197" target="_blank" rel="noopener">ubuntu18.04 anaconda安装tensorflow</a><br><a href="https://blog.csdn.net/qq_30975647/article/details/80097184" target="_blank" rel="noopener">Ubuntu18.04基于anaconda安装tensorflow</a></p>
+<h1 id="8参考"><a class="markdownIt-Anchor" href="#8参考"></a> 8.参考</h1>
+<p><a href="https://blog.csdn.net/weixin_42001089/article/details/81807197" target="_blank" rel="noopener">ubuntu18.04 anaconda安装tensorflow</a><br>
+<a href="https://blog.csdn.net/qq_30975647/article/details/80097184" target="_blank" rel="noopener">Ubuntu18.04基于anaconda安装tensorflow</a></p>
 
       
     </div>
@@ -532,8 +554,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/28/blog/win10入门使用Github/" rel="next" title="win10入门使用Github">
-                <i class="fa fa-chevron-left"></i> win10入门使用Github
+              <a href="/2019/03/28/blog/win10入门使用LaTeX/" rel="next" title="win10入门使用LaTeX">
+                <i class="fa fa-chevron-left"></i> win10入门使用LaTeX
               </a>
             
           </div>
@@ -542,8 +564,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/28/blog/Ubuntu18.10安装Anaconda3/" rel="prev" title="Ubuntu18.10安装Anaconda3">
-                Ubuntu18.10安装Anaconda3 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/28/blog/阿里云ECS安装jupyter+notebook/" rel="prev" title="在阿里云ECSLinux系统上安装jupyter notebook">
+                在阿里云ECSLinux系统上安装jupyter notebook <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -709,7 +731,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-环境说明（tensorflow只支持64位）"><span class="nav-text">1.环境说明（tensorflow只支持64位）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ubuntu18-10-64位"><span class="nav-text">Ubuntu18.10-64位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anaconda3-1-7-2"><span class="nav-text">Anaconda3-1.7.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-4-6-2"><span class="nav-text">conda-4.6.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-3-7-1"><span class="nav-text">python-3.7.1</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2-新建虚拟环境"><span class="nav-text">2.新建虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-查看已有虚拟环境"><span class="nav-text">3.查看已有虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-激活虚拟环境"><span class="nav-text">4.激活虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-安装TensorFlow"><span class="nav-text">5.安装TensorFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-测试"><span class="nav-text">6.测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#b’hello-world’"><span class="nav-text">b’hello world’</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-退出虚拟环境"><span class="nav-text">7.退出虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-参考"><span class="nav-text">8.参考</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1环境说明tensorflow只支持64位"><span class="nav-text"> 1.环境说明（tensorflow只支持64位）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ubuntu1810-64位"><span class="nav-text"> Ubuntu18.10-64位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#anaconda3-172"><span class="nav-text"> Anaconda3-1.7.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-462"><span class="nav-text"> conda-4.6.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-371"><span class="nav-text"> python-3.7.1</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2新建虚拟环境"><span class="nav-text"> 2.新建虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3查看已有虚拟环境"><span class="nav-text"> 3.查看已有虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4激活虚拟环境"><span class="nav-text"> 4.激活虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5安装tensorflow"><span class="nav-text"> 5.安装TensorFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6测试"><span class="nav-text"> 6.测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bhello-world"><span class="nav-text"> b’hello world’</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7退出虚拟环境"><span class="nav-text"> 7.退出虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8参考"><span class="nav-text"> 8.参考</span></a></li></div>
             
 
           </div>
@@ -750,7 +772,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.4k</span>
+    <span title="Site words total count">15.6k</span>
   
 </div>
 

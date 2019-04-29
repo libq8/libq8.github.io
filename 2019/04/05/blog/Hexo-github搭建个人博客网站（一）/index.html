@@ -125,6 +125,8 @@
   <link rel="canonical" href="https://libq8.github.io/2019/04/05/blog/Hexo-github搭建个人博客网站（一）/">
 
 
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
 
 
 
@@ -403,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  838
+                  846
                 </span>
               
 
@@ -446,99 +448,137 @@
       
         <a id="more"></a>
 <blockquote>
-<p>  环境说明：</p>
-<pre><code>Windows10
-
-Node.js：
-
-     建立在Chrome上的JavaScript运行引擎
-
-Git： 
-
-    一款免费、开源的分布式版本控制系统
-
-Github： 
-
-    国内一款面向开发者的云端开发平台，提供代码托管，运行空间，质量控制，项目管理等功能
-
-Hexo： 
-
-    快速、简洁且高效的博客框架
-
-    1. 支持Markdown
-
-    2. 轻量: 无需拥有后台及数据库
-
-    3.一键部署: 可以通过Git或者ftp来将生成的静态页面部署到服务器或者主机空间中
-
-    4. 插件和主题丰富: 满足各种个性化需求.
-</code></pre></blockquote>
-<h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h3><h4 id="1-1安装和配置Git"><a href="#1-1安装和配置Git" class="headerlink" title="1.1安装和配置Git"></a>1.1安装和配置Git</h4><p><a href="https://git-scm.com" target="_blank" rel="noopener">Git官网</a></p>
+<p>环境说明：</p>
+<pre><code>  Windows10
+  
+  Node.js：
+  
+  	 建立在Chrome上的JavaScript运行引擎
+  
+  Git： 
+  
+  	一款免费、开源的分布式版本控制系统
+  
+  Github： 
+  
+  	国内一款面向开发者的云端开发平台，提供代码托管，运行空间，质量控制，项目管理等功能
+  
+  Hexo： 
+  
+  	快速、简洁且高效的博客框架
+  
+  	1. 支持Markdown
+  
+  	2. 轻量: 无需拥有后台及数据库
+  
+  	3.一键部署: 可以通过Git或者ftp来将生成的静态页面部署到服务器或者主机空间中
+  
+  	4. 插件和主题丰富: 满足各种个性化需求.
+</code></pre>
+</blockquote>
+<h3 id="1-准备工作"><a class="markdownIt-Anchor" href="#1-准备工作"></a> 1. 准备工作</h3>
+<h4 id="11安装和配置git"><a class="markdownIt-Anchor" href="#11安装和配置git"></a> 1.1安装和配置Git</h4>
+<p><a href="https://git-scm.com" target="_blank" rel="noopener">Git官网</a></p>
 <p>注意把Git加到环境变量中，方便使用。可以通过右键检查是否配置成功。</p>
-<h4 id="1-2安装和配置Node-js"><a href="#1-2安装和配置Node-js" class="headerlink" title="1.2安装和配置Node.js"></a>1.2安装和配置Node.js</h4><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js下载地址</a></p>
+<h4 id="12安装和配置nodejs"><a class="markdownIt-Anchor" href="#12安装和配置nodejs"></a> 1.2安装和配置Node.js</h4>
+<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js下载地址</a></p>
 <p>打开cmd命令行输入指令检查版本：</p>
 <blockquote>
-<p>  node -v</p>
-<p>  npm -v</p>
+<p>node -v</p>
+<p>npm -v</p>
 </blockquote>
-<h4 id="1-3Github账户注册和配置"><a href="#1-3Github账户注册和配置" class="headerlink" title="1.3Github账户注册和配置"></a>1.3Github账户注册和配置</h4><p><a href="https://github.com/" target="_blank" rel="noopener">Github官网</a></p>
-<h6 id="1-3-1新建项目"><a href="#1-3-1新建项目" class="headerlink" title="1.3.1新建项目"></a>1.3.1新建项目</h6><p>注册成功后新建项目仓库create a new repository，注意项目命名格式必须为：账户名.github.io，通常勾选Public和initialize with README。</p>
-<p>打开项目的setting，查看github page可以找到项目链接，打开链接（账户名.github.io）即可访问到项目，后续将使用hexo部署个人博客网站到该项目。</p>
-<h6 id="1-3-2配置SSH-key"><a href="#1-3-2配置SSH-key" class="headerlink" title="1.3.2配置SSH key"></a>1.3.2配置SSH key</h6><p>创建仓库之后需要完成SSH key的配置以便更好地链接github服务器。打开cmd命令行输入指令检查配置</p>
+<h4 id="13github账户注册和配置"><a class="markdownIt-Anchor" href="#13github账户注册和配置"></a> 1.3Github账户注册和配置</h4>
+<p><a href="https://github.com/" target="_blank" rel="noopener">Github官网</a></p>
+<h6 id="131新建项目"><a class="markdownIt-Anchor" href="#131新建项目"></a> 1.3.1新建项目</h6>
+<p>注册成功后新建项目仓库create a new repository，注意项目命名格式必须为：<a href="http://xn--eqr924acs7a.github.io" target="_blank" rel="noopener">账户名.github.io</a>，通常勾选Public和initialize with README。</p>
+<p>打开项目的setting，查看github page可以找到项目链接，打开链接（<a href="http://xn--eqr924acs7a.github.io" target="_blank" rel="noopener">账户名.github.io</a>）即可访问到项目，后续将使用hexo部署个人博客网站到该项目。</p>
+<h6 id="132配置ssh-key"><a class="markdownIt-Anchor" href="#132配置ssh-key"></a> 1.3.2配置SSH key</h6>
+<p>创建仓库之后需要完成SSH key的配置以便更好地链接github服务器。打开cmd命令行输入指令检查配置</p>
 <blockquote>
-<p>   ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+<p>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
 </blockquote>
-<h6 id="1-3-3域名绑定"><a href="#1-3-3域名绑定" class="headerlink" title="1.3.3域名绑定"></a>1.3.3域名绑定</h6><p>绑定域名可以更加方便访问博客网站，如果是在服务器上部署绑定域名有利于使用更安全的HTTPS协议。</p>
+<h6 id="133域名绑定"><a class="markdownIt-Anchor" href="#133域名绑定"></a> 1.3.3域名绑定</h6>
+<p>绑定域名可以更加方便访问博客网站，如果是在服务器上部署绑定域名有利于使用更安全的HTTPS协议。</p>
 <p>当然不绑定也是可以的，直接使用github page就好。具体绑定域名的流程请另查教程。</p>
-<h3 id="2-安装和使用Hexo"><a href="#2-安装和使用Hexo" class="headerlink" title="2.安装和使用Hexo"></a>2.安装和使用Hexo</h3><h4 id="2-1安装Hexo"><a href="#2-1安装Hexo" class="headerlink" title="2.1安装Hexo"></a>2.1安装Hexo</h4><p>1) 在合适的位置创建文件夹作为hexo部署网站的一个根目录，如：D:\blog；打开命令行进入该目录</p>
-<p>2) 开始安装hexo，执行命令</p>
+<h3 id="2安装和使用hexo"><a class="markdownIt-Anchor" href="#2安装和使用hexo"></a> 2.安装和使用Hexo</h3>
+<h4 id="21安装hexo"><a class="markdownIt-Anchor" href="#21安装hexo"></a> 2.1安装Hexo</h4>
+<ol>
+<li>
+<p>在合适的位置创建文件夹作为hexo部署网站的一个根目录，如：D:\blog；打开命令行进入该目录</p>
+</li>
+<li>
+<p>开始安装hexo，执行命令</p>
+</li>
+</ol>
 <blockquote>
 <p><strong>npm install hexo -g</strong></p>
 </blockquote>
-<p>3) 检查安装，执行命令</p>
+<ol start="3">
+<li>检查安装，执行命令</li>
+</ol>
 <blockquote>
-<p>  <strong>hexo -v</strong></p>
+<p><strong>hexo -v</strong></p>
 </blockquote>
-<p>4) 初始化博客</p>
+<ol start="4">
+<li>初始化博客</li>
+</ol>
 <blockquote>
-<p>  <strong>hexo init</strong></p>
+<p><strong>hexo init</strong></p>
 </blockquote>
-<p>显示提示信息“INFO Start blogging with Hexo!”表示初始化成功</p>
-<p>5) 安装软件依赖</p>
+<p>显示提示信息“INFO Start blogging with Hexo!&quot;表示初始化成功</p>
+<ol start="5">
+<li>安装软件依赖</li>
+</ol>
 <blockquote>
-<p>  <strong>npm install</strong></p>
+<p><strong>npm install</strong></p>
 </blockquote>
-<p>6) 渲染并启动服务器</p>
+<ol start="6">
+<li>渲染并启动服务器</li>
+</ol>
 <blockquote>
-<p>  <strong>hexo g</strong>     生成渲染source目录下的静态文件<br>  <strong>hexo s</strong>   启动本地服务器</p>
+<p><strong>hexo g</strong> 	生成渲染source目录下的静态文件<br>
+<strong>hexo s</strong>   启动本地服务器</p>
 </blockquote>
-<p>7)  打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 查看效果</p>
+<ol start="7">
+<li>打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 查看效果</li>
+</ol>
 <p><img src="/2019/04/05/blog/Hexo-github搭建个人博客网站（一）/image/hexo/003.PNG" alt="博客网站初始效果"></p>
-<h4 id="2-2-绑定hexo和github-page"><a href="#2-2-绑定hexo和github-page" class="headerlink" title="2.2 绑定hexo和github page"></a>2.2 绑定hexo和github page</h4><p>1) 确定SSH key配置成功</p>
-<p>2) 配置deployment</p>
+<h4 id="22-绑定hexo和github-page"><a class="markdownIt-Anchor" href="#22-绑定hexo和github-page"></a> 2.2 绑定hexo和github page</h4>
+<ol>
+<li>
+<p>确定SSH key配置成功</p>
+</li>
+<li>
+<p>配置deployment</p>
+</li>
+</ol>
 <p>在博客根目录（本例为D:\blog）修改_config.yml文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repository: </span><br><span class="line">		github: git@github.com:username/username.github.io.git</span><br></pre></td></tr></table></figure>
 <p>repository值为步骤1.3.1中github项目的SSH</p>
 <p>注意每一个键值对之间（即冒号:之后）必须有一个空格</p>
-<h4 id="2-3新建博客"><a href="#2-3新建博客" class="headerlink" title="2.3新建博客"></a>2.3新建博客</h4><p>1) 进入博客的根目录（本例为D:\blog）执行新建博客命令：</p>
+<h4 id="23新建博客"><a class="markdownIt-Anchor" href="#23新建博客"></a> 2.3新建博客</h4>
+<ol>
+<li>进入博客的根目录（本例为D:\blog）执行新建博客命令：</li>
+</ol>
 <blockquote>
-<p>  <strong>hexo new post “hello_world”</strong></p>
+<p><strong>hexo new post &quot;hello_world&quot;</strong></p>
 </blockquote>
 <p>在D:\source\_posts文件目录下可以看到新建的hello_world.md文件</p>
 <p>2）编辑hello_world.md文件</p>
 <p>3）安装扩展：</p>
 <blockquote>
-<p>  <strong>npm install hexo-deployer-git –save</strong></p>
+<p><strong>npm install hexo-deployer-git --save</strong></p>
 </blockquote>
 <p>4）生成和部署博客：</p>
 <blockquote>
-<p>  <strong>hexo clean</strong></p>
+<p><strong>hexo clean</strong></p>
 </blockquote>
 <blockquote>
-<p>  <strong>hexo d -g</strong></p>
+<p><strong>hexo d -g</strong></p>
 </blockquote>
-<p>5）访问博客：$<a href="https://uername.github.io$" target="_blank" rel="noopener">https://uername.github.io$</a></p>
-<h4 id="参考教程："><a href="#参考教程：" class="headerlink" title="参考教程："></a>参考教程：</h4><p>[<a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">使用Hexo+Github一步步搭建属于自己的博客（基础）</a>]</p>
+<p>5）访问博客：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>t</mi><mi>t</mi><mi>p</mi><mi>s</mi><mo>:</mo><mi mathvariant="normal">/</mi><mi mathvariant="normal">/</mi><mi>u</mi><mi>e</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>u</mi><mi>b</mi><mi mathvariant="normal">.</mi><mi>i</mi><mi>o</mi></mrow><annotation encoding="application/x-tex">https://uername.github.io</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mord mathit">t</span><span class="mord mathit">t</span><span class="mord mathit">p</span><span class="mord mathit">s</span><span class="mrel">:</span><span class="mord mathrm">/</span><span class="mord mathrm">/</span><span class="mord mathit">u</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">n</span><span class="mord mathit">a</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">i</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mord mathit">u</span><span class="mord mathit">b</span><span class="mord mathrm">.</span><span class="mord mathit">i</span><span class="mord mathit">o</span></span></span></span></p>
+<h4 id="参考教程"><a class="markdownIt-Anchor" href="#参考教程"></a> 参考教程：</h4>
+<p>[<a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">使用Hexo+Github一步步搭建属于自己的博客（基础）</a>]</p>
 <p>[<a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">使用hexo+github搭建免费个人博客详细教程</a>]</p>
 
       
@@ -777,7 +817,7 @@ Hexo：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-准备工作"><span class="nav-text">1. 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1安装和配置Git"><span class="nav-text">1.1安装和配置Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2安装和配置Node-js"><span class="nav-text">1.2安装和配置Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3Github账户注册和配置"><span class="nav-text">1.3Github账户注册和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-1新建项目"><span class="nav-text">1.3.1新建项目</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-2配置SSH-key"><span class="nav-text">1.3.2配置SSH key</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-3域名绑定"><span class="nav-text">1.3.3域名绑定</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装和使用Hexo"><span class="nav-text">2.安装和使用Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1安装Hexo"><span class="nav-text">2.1安装Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-绑定hexo和github-page"><span class="nav-text">2.2 绑定hexo和github page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3新建博客"><span class="nav-text">2.3新建博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考教程："><span class="nav-text">参考教程：</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-准备工作"><span class="nav-text"> 1. 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11安装和配置git"><span class="nav-text"> 1.1安装和配置Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12安装和配置nodejs"><span class="nav-text"> 1.2安装和配置Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13github账户注册和配置"><span class="nav-text"> 1.3Github账户注册和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#131新建项目"><span class="nav-text"> 1.3.1新建项目</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#132配置ssh-key"><span class="nav-text"> 1.3.2配置SSH key</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#133域名绑定"><span class="nav-text"> 1.3.3域名绑定</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#2安装和使用hexo"><span class="nav-text"> 2.安装和使用Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21安装hexo"><span class="nav-text"> 2.1安装Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-绑定hexo和github-page"><span class="nav-text"> 2.2 绑定hexo和github page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23新建博客"><span class="nav-text"> 2.3新建博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考教程"><span class="nav-text"> 参考教程：</span></a></li></ol></li></div>
             
 
           </div>
@@ -818,7 +858,7 @@ Hexo：
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.4k</span>
+    <span title="Site words total count">15.6k</span>
   
 </div>
 
