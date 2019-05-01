@@ -90,7 +90,8 @@
 <meta property="og:image" content="https://github.com/libq8/MyBlog/blob/master/image/courses-note/software-engineering/01.png?raw=true">
 <meta property="og:image" content="https://github.com/libq8/MyBlog/blob/master/image/courses-note/software-engineering/02.png?raw=true">
 <meta property="og:image" content="https://github.com/libq8/MyBlog/blob/master/image/courses-note/software-engineering/03.png?raw=true">
-<meta property="og:updated_time" content="2019-05-01T05:31:42.355Z">
+<meta property="og:image" content="https://github.com/libq8/MyBlog/blob/master/image/courses-note/software-engineering/04.png?raw=true">
+<meta property="og:updated_time" content="2019-05-01T05:48:14.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件工程作业">
 <meta name="twitter:description" content="参考：lichr的个人博客;软件工程第四版；">
@@ -418,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.7k
+                  3.8k
                 </span>
               
 
@@ -434,7 +435,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  12
                 </span>
               
             </div>
@@ -534,6 +535,100 @@
 2）用例析取：<br>
 复审用例规约<br>
 边界类，控制类，实体类（先找关键数据类）</p>
+<ol>
+<li>
+<p>请描述基于面向对象的类的设计步骤</p>
+</li>
+<li>
+<p>请描述基于面向对象的子系统及其接口设计的步骤</p>
+</li>
+<li>
+<p>软件设计的四个任务是什么</p>
+<ul>
+<li>架构设计</li>
+<li>数据设计</li>
+<li>子系统及其接口设计</li>
+<li>部件设计（旧版本为过程设计）</li>
+</ul>
+</li>
+<li>
+<p>部署图、状态机、构建图描述什么的？分别有哪些图形符号？</p>
+</li>
+<li>
+<p>DFD是用来做什么的？有几个图形符号，表示什么含义？绘制DFD有哪些注意事项（至少5项）？</p>
+<ul>
+<li>
+<p>DFD，data flow diagram，数据流图是结构化的需求分析的制品，它描绘了数据流从输入移动到输出的过程中所经历的变换。</p>
+</li>
+<li>
+<img src="https://github.com/libq8/MyBlog/blob/master/image/courses-note/software-engineering/04.png?raw=true">
+</li>
+<li>
+<p>DFD由4种元素构成，分别是数据的源点/终点，变换数据的处理，数据存储和数据流。<br>
+（1）数据流(data flow)：由一组固定成分的数据组成，代表数据的流动方向<br>
+（2）加工(process)：描述了输入数据流到输出数据流的变换，即将输入数据流加工成输出数据流<br>
+（3）文件(file)：使用文件、数据库等保存某些数据结果供以后使用<br>
+（4）源或宿(source or sink)：由一组固定成分的数据组成，代表数据的流动方向</p>
+</li>
+<li>
+<p>注意事项：<br>
+1.从高层逻辑着手，逐层细化。<br>
+2.成分命名应是恰当的，可以理解的，且具有唯一性。<br>
+3.处理必须是动词或动名词<br>
+4.顶层数据流图应该描述系统的数据流加工和封装的过程<br>
+5.除了顶层数据流图，其他的数据流图必须包含4种符号<br>
+6.对于处理，既要有输入，也要有输出<br>
+7.子图父图需要保持一致性<br>
+8.父图已经产生的符号，子图必须保留</p>
+</li>
+</ul>
+</li>
+<li>
+<p>基于结构化的软件分析与设计的思想精髓是什么？<br>
+抽象与自顶向下逐步求精</p>
+<ul>
+<li>抽象：在每个抽象层次上忽略问题的内部复杂性，只关注<br>
+整个问题与外界的联系</li>
+<li>分解：将问题不断分解为较小的问题，直到每个最底层的<br>
+问题都足够简单为止</li>
+</ul>
+</li>
+<li>
+<p>基于结构化的软件分析与设计的步骤是什么？</p>
+<ul>
+<li>分析步骤：<br>
+（1）写问题陈述<br>
+（2）绘制数据流图DFD<br>
+（3）写数据字典<br>
+（4）写基本加工小说明</li>
+<li>设计步骤：分为概要设计和详细设计两大步骤<br>
+概要设计是对软件系统的总体设计，采用结构化设计方法，其任务是：将系统分解成模块，确定每个模块的功能、接口(模块间传递的数据)及其调用关系，并用模块及其对模块的调用来构建软件的体系结构<br>
+详细设计是对模块实现细节的设计，采用结构化程序设计(Structured Programming，简称SP)方法<br>
+详细划分可分为：<br>
+（1）建立初始结构图：分解软件功能划分模块<br>
+（2）对结构图进行改进：根据设计准则和启发式设计策略<br>
+（3）书写设计文档：每个模块的设计规格说明<br>
+（4）设计评审</li>
+</ul>
+</li>
+<li>
+<p>什么叫模块的宽度、深度、扇入和扇出？请简单解析上述概念在软件架构设计中应该注意的事项？</p>
+<ul>
+<li>深度：程序结构图中控制的层数</li>
+<li>宽度：程序结构图中同一层次上模块总数的最大值</li>
+<li>扇出(fan out)：该模块直接调用的模块数目</li>
+<li>扇入(fan in)： 能直接调用该模块的模块数目</li>
+<li>按照模块化设计原则，需要遵循启发式设计策略：避免高扇出，并随着深度的增加，力求高扇入</li>
+</ul>
+</li>
+<li>
+<p>请用数据字典的方法描述一个数据（如课程表）<br>
+数据字典由字典条目组成，每个条目描述DFD中的一个元素，包括：数据流、文件、数据项、加工、源或宿<br>
+课程表数据字典：<br>
+课程＝课程名＋任课教师＋教材＋时间地点<br>
+时间地点＝｛星期几＋第几节＋教室｝</p>
+</li>
+</ol>
 
       
     </div>
@@ -810,7 +905,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.4k</span>
+    <span title="Site words total count">17.5k</span>
   
 </div>
 
